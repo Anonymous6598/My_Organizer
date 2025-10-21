@@ -1,7 +1,11 @@
 # My_Organizer
 Open source emploee management system app with AI chatbot
 
+## Windows / Copilot+PC
 <img width="1919" height="1136" alt="Snimak ekrana 2025-10-08 004410" src="https://github.com/user-attachments/assets/c1fe9a4e-7196-4f13-91a2-706ccee150ce" />
+
+## Linux
+<img width="1919" height="1036" alt="Снимак екрана од 2025-10-21 23-00-55" src="https://github.com/user-attachments/assets/407d01ff-6c00-4e2c-99d0-1562f97e91d4" />
 
 > [!Warning]
 > Copilot+PC version only supports Intel Core Ultra processors
