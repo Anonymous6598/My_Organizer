@@ -7,7 +7,8 @@ class AI_Window(customtkinter.CTkToplevel, My_Organizer_AI_Window_Interface.AI_W
         self.title("My Organizer AI chatbot")
         self.geometry(f"525x300")
         self.resizable(False, False)
-                
+        self.after(250, lambda: self.iconbitmap(f"My_Organizer_icon.ico"))
+        
         self.ai_window_textbox = customtkinter.CTkTextbox(master=self, height=265, width=524, corner_radius=0, fg_color=f"transparent", text_color=(f"black", f"white"))
         self.ai_window_textbox.place(x=0, y=0)
 
@@ -31,7 +32,7 @@ class AI_Window(customtkinter.CTkToplevel, My_Organizer_AI_Window_Interface.AI_W
         self.query: str = My_Organizer_AI.LLM().__response_from_AI__(f"<|system|>You are a helpful AI assistant, who knows everything about business and organization.<|end|><|user|>{self.ai_window_entry_data}<|end|><|assistant|>")
 
         self.ai_window_textbox.configure(state=f"normal")
-        self.ai_window_textbox.insert(tkinter.END, f"USER:\n{self.ai_window_entry_data}\nGPT5:\n{self.query}\n")
+        self.ai_window_textbox.insert(tkinter.END, f"USER:\n{self.ai_window_entry_data}\nGPT-4o-mini:\n{self.query}\n")
         self.ai_window_textbox.configure(state=f"disabled")
         self.ai_window_entry.delete(0, tkinter.END)
 
