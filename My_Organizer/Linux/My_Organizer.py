@@ -18,6 +18,8 @@ class Program(customtkinter.CTk, My_Organizer_Interface.My_Organizer_Interface):
         self.savebutton: customtkinter.CTkButton = self.appmenu.add_cascade(f"Save table", command=self.__save_data__)
         self.cleanbutton: customtkinter.CTkButton = self.appmenu.add_cascade(f"Clean table", command=self.__clean_table__)
         self.aichatbot: customtkinter.CTkButton = self.appmenu.add_cascade(f"AI", command=lambda: My_Organizer_AI_Window.AI_Window())
+        self.darktheme: customtkinter.CTkButton = self.appmenu.add_cascade(f"Dark theme", command=lambda: customtkinter.set_appearance_mode(f"Dark"))
+        self.lighttheme: customtkinter.CTkButton = self.appmenu.add_cascade(f"Light theme", command=lambda: customtkinter.set_appearance_mode(f"Light"))
 
         self.tableframe: customtkinter.CTkScrollableFrame = customtkinter.CTkScrollableFrame(self)
         self.tableframe.pack(fill=f"both", expand=True)
