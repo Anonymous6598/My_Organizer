@@ -1,5 +1,5 @@
 # My_Organizer
-Open source emploee management system app with AI chatbot
+Open source emploee management system app with AI chatbot (gpt-4o-mini / llama 3.2)
 
 ## Windows / Copilot+PC
 <img width="1919" height="1136" alt="Snimak ekrana 2025-10-08 004410" src="https://github.com/user-attachments/assets/c1fe9a4e-7196-4f13-91a2-706ccee150ce" />
