@@ -13,6 +13,8 @@ class Program(customtkinter.CTk, My_Organizer_Interface.My_Organizer_Interface):
     def __init__(self: typing.Self, *args, **kwargs): 
         customtkinter.CTk.__init__(self, *args, **kwargs) 
         
+        customtkinter.set_appearance_mode(theme)
+        
         self.title(self.TITLE)
         self.geometry(f"{self.WIDTH}x{self.HEIGHT}") 
         self.protocol(f"WM_DELETE_WINDOW", sys.exit)
