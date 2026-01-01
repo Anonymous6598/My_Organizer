@@ -18,7 +18,7 @@ class LLM(My_Organizer_AI_Interface.LLM_Interface):
         config.temperature: float = 0.3
         config.top_p: float = 0.5
         config.top_k: float = 1
-        config.repetition_penalty: float = 1.0
+        config.repetition_penalty: float = 1.1
         config.num_return_sequences: float = 1
         config.num_beams: float = 1
         config.num_return_sequences: float = 1
