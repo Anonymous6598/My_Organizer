@@ -12,18 +12,19 @@ class LLM(My_Organizer_AI_Interface.LLM_Interface):
         return pipe
 
     @typing.override
-    def __response_from_AI__(self: typing.Self, prompt: str, pipe: str):
-        config: openvino_genai.GenerationConfig = openvino_genai.GenerationConfig()
-        config.max_new_tokens: int = 1024
-        config.temperature: float = 0.3
-        config.top_p: float = 0.5
-        config.top_k: float = 1
-        config.repetition_penalty: float = 1.1
-        config.num_return_sequences: float = 1
-        config.num_beams: float = 1
-        config.num_return_sequences: float = 1
-        config.do_sample: bool = False
-        config.eos_token_id: float = -1
+    def __response__(self: typing.Self, pipe: openvino_genai.LLMPipeline = None, query: str = None) -> str:
+        self.config: openvino_genai.GenerationConfig = openvino_genai.GenerationConfig()
+        self.config.max_new_tokens = 1024
+        self.config.temperature = 0.7
+        self.config.top_p = 0.5
+        self.config.top_k = 50
+        self.config.repetition_penalty = 1.1
+        self.config.num_return_sequences = 1
+        self.config.num_beams = 1
+        self.config.num_return_sequences = 1
+        self.config.do_sample = True
 
-        result: str = pipe.generate(prompt, config)
-        return result
+
+        self.result: str = pipe.generate(query, self.config)
+
+        return self.result
