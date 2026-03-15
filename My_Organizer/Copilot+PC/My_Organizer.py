@@ -1,4 +1,4 @@
-﻿import customtkinter, CTkMenuBar, CTkTable, tkinter, tkinter.filedialog, tkinter.messagebox, sys, csv, typing, My_Organizer_AI, speech_recognition, threading, openpyxl, os, My_Organizer_Interface, My_Organizer_AI_Window_Interface
+﻿import customtkinter, CTkMenuBar, CTkTable, tkinter, tkinter.filedialog, tkinter.messagebox, sys, csv, typing, My_Organizer_AI, speech_recognition, threading, openpyxl, os, My_Organizer_Interface, My_Organizer_AI_Window_Interface, ctk_markdown
 
 slm = My_Organizer_AI.LLM().__init_model__()
 
@@ -225,18 +225,18 @@ class AI_Window(customtkinter.CTkToplevel, My_Organizer_AI_Window_Interface.AI_W
         self.resizable(False, False)
         self.after(250, lambda: self.iconbitmap(self.ICON))
         
-        self.ai_window_textbox = customtkinter.CTkTextbox(master=self, height=265, width=524, corner_radius=0, fg_color=f"transparent", text_color=(f"black", f"white"))
+        self.ai_window_textbox: ctk_markdown.CTkMarkdown = ctk_markdown.CTkMarkdown(master=self, height=265, width=524, corner_radius=0, fg_color=f"transparent", text_color=(f"black", f"white"))
         self.ai_window_textbox.place(x=0, y=0)
 
         self.ai_window_textbox.configure(state=f"disabled")
 
-        self.ai_window_entry = customtkinter.CTkEntry(master=self, height=30, width=465, border_width=0, fg_color=f"transparent", placeholder_text=f"...")
+        self.ai_window_entry: customtkinter.CTkEntry = customtkinter.CTkEntry(master=self, height=30, width=465, border_width=0, fg_color=f"transparent", placeholder_text=f"...")
         self.ai_window_entry.place(x=0, y=269)
 
-        self.ai_window_microphone_button = customtkinter.CTkButton(master=self, height=30, width=30, border_width=0, fg_color=f"transparent", text=f"🎤", command=self.__audio_input__)
+        self.ai_window_microphone_button: customtkinter.CTkButton = customtkinter.CTkButton(master=self, height=30, width=30, border_width=0, fg_color=f"transparent", text=f"🎤", command=self.__audio_input__)
         self.ai_window_microphone_button.place(x=465, y=269)
 
-        self.ai_window_send_request_button = customtkinter.CTkButton(master=self, height=30, width=30, border_width=0, fg_color=f"transparent", text=f"->", command=self.__response__)
+        self.ai_window_send_request_button: customtkinter.CTkButton = customtkinter.CTkButton(master=self, height=30, width=30, border_width=0, fg_color=f"transparent", text=f"->", command=self.__response__)
         self.ai_window_send_request_button.place(x=495, y=269)
 
         self.ai_window_entry.bind(f"<Return>", self.__response__)
@@ -251,6 +251,7 @@ class AI_Window(customtkinter.CTkToplevel, My_Organizer_AI_Window_Interface.AI_W
             def update_gui():
                 self.ai_window_textbox.configure(state=f"normal")
                 self.ai_window_textbox.insert(tkinter.END, f"USER:\n{self.ai_window_entry_data}\nLlama:\n{self.query}\n")
+                self.ai_window_textbox.set_markdown(self.ai_window_textbox.get(f"1.0", tkinter.END))
                 self.ai_window_textbox.configure(state=f"disabled")
                 self.ai_window_entry.delete(0, tkinter.END)
 
