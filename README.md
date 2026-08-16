@@ -90,3 +90,6 @@ Double-click `My_Organizer.exe`. On first launch, the assistant loads the model 
 ## License
 
 See [LICENSE](LICENSE) for details.
+
+## Important
+- New version will be released in September, due to exams at my faculty.
